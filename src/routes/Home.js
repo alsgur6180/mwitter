@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import { dbService } from "myBase";
+import React, { useEffect, useState } from "react";
 
-const Home = () => {
+const Home = ({ userObj }) => {
   const [mweet, setMweet] = useState("");
-  const onSubmit = (event) => {
+  const [mweets, setMweets] = useState([]);
+  useEffect(() => {
+    dbService.collection("mweets").onSnapshot((snapshot) => {
+      const mweetArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setMweets(mweetArray);
+    });
+  }, []);
+  const onSubmit = async (event) => {
     event.preventDefault();
+    await dbService.collection("mweets").add({
+      text: mweet,
+      createdAt: Date.now(),
+      creatorId: userObj.uid,
+    });
+    setMweet("");
   };
   const onChange = (event) => {
     const {
@@ -13,15 +30,23 @@ const Home = () => {
   };
   return (
     <div>
-      <fomr>
+      <form onSubmit={onSubmit}>
         <input
+          value={mweet}
           onChange={onChange}
           type="text"
           placeholder="What is your mind?"
           maxLength={120}
         />
-        <input onSubmit={onSubmit} type="submit" value="Mweet" />
-      </fomr>
+        <input type="submit" value="Mweet" />
+      </form>
+      <div>
+        {mweets.map((mweet) => (
+          <div key={mweet.id}>
+            <h4>{mweet.text}</h4>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
