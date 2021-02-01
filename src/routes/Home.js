@@ -1,3 +1,4 @@
+import Mweet from "components/Mweet";
 import { dbService } from "myBase";
 import React, { useEffect, useState } from "react";
 
@@ -42,9 +43,11 @@ const Home = ({ userObj }) => {
       </form>
       <div>
         {mweets.map((mweet) => (
-          <div key={mweet.id}>
-            <h4>{mweet.text}</h4>
-          </div>
+          <Mweet
+            key={mweet.id}
+            mweetObj={mweet}
+            isOwner={mweet.creatorId === userObj.uid}
+          />
         ))}
       </div>
     </div>
