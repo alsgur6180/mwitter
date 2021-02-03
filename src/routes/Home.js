@@ -1,6 +1,7 @@
 import Mweet from "components/Mweet";
-import { dbService } from "myBase";
+import { dbService, storageService } from "myBase";
 import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const Home = ({ userObj }) => {
   const [mweet, setMweet] = useState("");
@@ -17,12 +18,14 @@ const Home = ({ userObj }) => {
   }, []);
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.collection("mweets").add({
-      text: mweet,
-      createdAt: Date.now(),
-      creatorId: userObj.uid,
-    });
-    setMweet("");
+    const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+    await fileRef.putString(attachment, "data_url");
+    // await dbService.collection("mweets").add({
+    //   text: mweet,
+    //   createdAt: Date.now(),
+    //   creatorId: userObj.uid,
+    // });
+    // setMweet("");
   };
   const onChange = (event) => {
     const {
