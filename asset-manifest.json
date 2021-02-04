@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/alsgur6180/mwitter/static/css/main.a1be6398.chunk.css",
-    "main.js": "/alsgur6180/mwitter/static/js/main.9ff37653.chunk.js",
-    "main.js.map": "/alsgur6180/mwitter/static/js/main.9ff37653.chunk.js.map",
-    "runtime-main.js": "/alsgur6180/mwitter/static/js/runtime-main.cb448054.js",
-    "runtime-main.js.map": "/alsgur6180/mwitter/static/js/runtime-main.cb448054.js.map",
-    "static/js/2.855c8a47.chunk.js": "/alsgur6180/mwitter/static/js/2.855c8a47.chunk.js",
-    "static/js/2.855c8a47.chunk.js.map": "/alsgur6180/mwitter/static/js/2.855c8a47.chunk.js.map",
-    "index.html": "/alsgur6180/mwitter/index.html",
-    "static/css/main.a1be6398.chunk.css.map": "/alsgur6180/mwitter/static/css/main.a1be6398.chunk.css.map",
-    "static/js/2.855c8a47.chunk.js.LICENSE.txt": "/alsgur6180/mwitter/static/js/2.855c8a47.chunk.js.LICENSE.txt"
+    "main.css": "/mwitter/static/css/main.a1be6398.chunk.css",
+    "main.js": "/mwitter/static/js/main.9ff37653.chunk.js",
+    "main.js.map": "/mwitter/static/js/main.9ff37653.chunk.js.map",
+    "runtime-main.js": "/mwitter/static/js/runtime-main.f61087f1.js",
+    "runtime-main.js.map": "/mwitter/static/js/runtime-main.f61087f1.js.map",
+    "static/js/2.d24f3f69.chunk.js": "/mwitter/static/js/2.d24f3f69.chunk.js",
+    "static/js/2.d24f3f69.chunk.js.map": "/mwitter/static/js/2.d24f3f69.chunk.js.map",
+    "index.html": "/mwitter/index.html",
+    "static/css/main.a1be6398.chunk.css.map": "/mwitter/static/css/main.a1be6398.chunk.css.map",
+    "static/js/2.d24f3f69.chunk.js.LICENSE.txt": "/mwitter/static/js/2.d24f3f69.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.cb448054.js",
-    "static/js/2.855c8a47.chunk.js",
+    "static/js/runtime-main.f61087f1.js",
+    "static/js/2.d24f3f69.chunk.js",
     "static/css/main.a1be6398.chunk.css",
     "static/js/main.9ff37653.chunk.js"
   ]
