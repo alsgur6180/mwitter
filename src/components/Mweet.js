@@ -1,13 +1,14 @@
-import { dbService } from "myBase";
+import { dbService, storageService } from "myBase";
 import React, { useState } from "react";
 
 const Mweet = ({ mweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newMweet, setNewMweet] = useState(mweetObj.text);
-  const onDeleteClick = () => {
+  const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this mweet?");
     if (ok) {
-      dbService.doc(`mweets/${mweetObj.id}`).delete();
+      await dbService.doc(`mweets/${mweetObj.id}`).delete();
+      await storageService.refFromURL(mweetObj.attachmentUrl).delete();
     }
   };
   const toggleMweet = () => setEditing((prev) => !prev);
@@ -41,6 +42,14 @@ const Mweet = ({ mweetObj, isOwner }) => {
       ) : (
         <>
           <h4>{mweetObj.text}</h4>
+          {mweetObj.attachmentUrl && (
+            <img
+              src={mweetObj.attachmentUrl}
+              alt={mweetObj.attachmentUrl}
+              width="50px"
+              height="50px"
+            />
+          )}
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete button</button>
